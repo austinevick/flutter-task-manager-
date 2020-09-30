@@ -35,6 +35,7 @@ dependencies:
   flutter_calendar_carousel:
   intl:
   hover_effect:  
+  provider:
 
   
 
