@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo_app_ui/widgets/custom_button.dart';
 import 'package:table_calendar/table_calendar.dart';
 
 class InputScreen extends StatefulWidget {
@@ -112,25 +113,7 @@ class _InputScreenState extends State<InputScreen> {
                     ),
                   )),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
-              child: Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        colors: [Colors.blueAccent, Colors.indigo]),
-                    borderRadius: BorderRadius.circular(
-                      8,
-                    )),
-                child: FlatButton(
-                  onPressed: () {},
-                  child: Text(
-                    'DONE',
-                    style: TextStyle(color: Colors.white, fontSize: 20),
-                  ),
-                ),
-              ),
-            )
+            CustomButton()
           ],
         ),
       ),
