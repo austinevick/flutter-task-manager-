@@ -56,11 +56,11 @@ class _LoginScreenState extends State<LoginScreen> {
           decoration: BoxDecoration(
               image: DecorationImage(
                   colorFilter: ColorFilter.mode(
-                    Colors.black54,
+                    Colors.black87,
                     BlendMode.darken,
                   ),
                   fit: BoxFit.cover,
-                  image: AssetImage('image/bg.jpeg'))),
+                  image: AssetImage('image/bridge.jpg'))),
           child: Stack(
             // alignment: Alignment.center,
             children: [
@@ -113,13 +113,16 @@ class _LoginScreenState extends State<LoginScreen> {
               ),
               Center(
                 child: Container(
-                  height: MediaQuery.of(context).size.height / 1.5,
+                  height: MediaQuery.of(context).size.height / 1.6,
                   decoration: BoxDecoration(
-                      color: Colors.white38,
+                      color: Colors.white12,
                       borderRadius: BorderRadius.circular(10)),
                   child: Form(
                     child: Column(
                       children: [
+                        SizedBox(
+                          height: 30,
+                        ),
                         isLogin
                             ? CustomTextfield(
                                 hintText: 'Username',
@@ -131,11 +134,15 @@ class _LoginScreenState extends State<LoginScreen> {
                         CustomTextfield(
                           hintText: 'Password',
                         ),
-                        Align(
-                          alignment: Alignment.centerRight,
-                          child: Text(
-                            'Forgot Password?',
-                            style: TextStyle(color: Colors.white, fontSize: 20),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Align(
+                            alignment: Alignment.centerRight,
+                            child: Text(
+                              'Forgot Password?',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 18),
+                            ),
                           ),
                         ),
                         CustomButton(
