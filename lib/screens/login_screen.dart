@@ -14,20 +14,41 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Responsive(
-        largeScreen: Row(
+        largeScreen: Stack(
+          alignment: Alignment.centerRight,
           children: [
-            Expanded(
-              child: Container(
-                color: Colors.green,
-              ),
+            Container(
+              decoration: BoxDecoration(
+                  image: DecorationImage(
+                      colorFilter: ColorFilter.mode(
+                        Colors.black45,
+                        BlendMode.darken,
+                      ),
+                      fit: BoxFit.cover,
+                      image: AssetImage(
+                        'image/bridge.jpg',
+                      ))),
             ),
-            Expanded(
+            RotatedBox(
+                quarterTurns: 1,
                 child: ClipPath(
-              clipper: MyClipper(),
-              child: Container(
-                color: Colors.pink,
-              ),
-            ))
+                  clipper: MyClipper(),
+                  child: Container(
+                    height: MediaQuery.of(context).size.height,
+                    color: Colors.pink,
+                    child: Form(
+                      child: RotatedBox(
+                        quarterTurns: -1,
+                        child: Container(
+                          padding: EdgeInsets.all(20),
+                          child: Column(
+                            children: [TextFormField()],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ))
           ],
         ),
         smallScreen: Container(
@@ -137,10 +158,13 @@ class _LoginScreenState extends State<LoginScreen> {
 class MyClipper extends CustomClipper<Path> {
   @override
   getClip(Size size) {
-    var path = Path();
-    path.lineTo(10, size.height);
-    var s = Offset(10, size.width);
-    path.quadraticBezierTo(s.direction, size.height, 12, 0);
+    Path path = Path();
+    path.lineTo(0, size.height);
+    path.quadraticBezierTo(
+        size.width / 8, size.height - 80, size.width / 2, size.height - 20);
+    path.quadraticBezierTo(
+        3 / 4 * size.width, size.height + 20, size.width, size.height - 30);
+    path.lineTo(size.width, 0);
     return path;
   }
 
