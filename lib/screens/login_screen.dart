@@ -135,17 +135,19 @@ class _LoginScreenState extends State<LoginScreen> {
                         CustomTextfield(
                           hintText: 'Password',
                         ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Align(
-                            alignment: Alignment.centerRight,
-                            child: Text(
-                              'Forgot Password?',
-                              style:
-                                  TextStyle(color: Colors.white, fontSize: 18),
-                            ),
-                          ),
-                        ),
+                        isLogin
+                            ? Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Align(
+                                  alignment: Alignment.centerRight,
+                                  child: Text(
+                                    'Forgot Password?',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 18),
+                                  ),
+                                ),
+                              )
+                            : Container(),
                         CustomButton(
                           text: isLogin ? 'LOGIN' : 'SIGN UP',
                           onPressed: () {},
