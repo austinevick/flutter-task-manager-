@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_todo_app_ui/screens/home_screen.dart';
 import 'package:flutter_todo_app_ui/widgets/custom_button.dart';
 import 'package:flutter_todo_app_ui/widgets/custom_textfield.dart';
 import 'package:flutter_todo_app_ui/widgets/responsive.dart';
@@ -9,7 +10,7 @@ class LoginScreen extends StatefulWidget {
 }
 
 class _LoginScreenState extends State<LoginScreen> {
-  bool isLogin = true;
+  bool isLogin = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -124,10 +125,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           height: 30,
                         ),
                         isLogin
-                            ? CustomTextfield(
+                            ? SizedBox()
+                            : CustomTextfield(
                                 hintText: 'Username',
-                              )
-                            : SizedBox(),
+                              ),
                         CustomTextfield(
                           hintText: 'Email',
                         ),
@@ -152,15 +153,22 @@ class _LoginScreenState extends State<LoginScreen> {
                         SizedBox(
                           height: 15,
                         ),
-                        Center(
-                          child: FlatButton(
-                              onPressed: () {},
-                              child: Text(
-                                'Maybe Later',
-                                style: TextStyle(
-                                    color: Colors.white, fontSize: 22),
-                              )),
-                        )
+                        isLogin
+                            ? Container()
+                            : Center(
+                                child: FlatButton(
+                                    onPressed: () => Navigator.of(context)
+                                            .push(MaterialPageRoute(
+                                                builder: (
+                                          ctx,
+                                        ) =>
+                                                    HomeScreen())),
+                                    child: Text(
+                                      'Maybe Later',
+                                      style: TextStyle(
+                                          color: Colors.white, fontSize: 22),
+                                    )),
+                              )
                       ],
                     ),
                   ),
