@@ -149,6 +149,18 @@ class _LoginScreenState extends State<LoginScreen> {
                           text: isLogin ? 'LOGIN' : 'SIGN UP',
                           onPressed: () {},
                         ),
+                        SizedBox(
+                          height: 15,
+                        ),
+                        Center(
+                          child: FlatButton(
+                              onPressed: () {},
+                              child: Text(
+                                'Maybe Later',
+                                style: TextStyle(
+                                    color: Colors.white, fontSize: 22),
+                              )),
+                        )
                       ],
                     ),
                   ),
